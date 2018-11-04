@@ -1,0 +1,61 @@
+\documentclass[10pt,a4paper]{report}
+
+\usepackage[a4paper,top=3cm,bottom=3cm,left=2cm,right=2cm]{geometry}
+%bindingoffset=5mm
+
+% per la codifica dei font
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+
+% per l'interlinea
+\usepackage{setspace}
+
+% per le immagini
+\usepackage[dvips]{graphicx}
+
+% per la matematica
+\usepackage{amsmath,amssymb,euler,mathtools}
+
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norma}{\lVert}{\rVert}
+
+% per l'inserimento del codice nel testo
+\usepackage{listings}
+\lstset{language=python, basicstyle=\small\ttfamily}
+\lstnewenvironment{codice}{\lstset{language=python, basicstyle=\small\ttfamily, showstringspaces=false}}{}
+
+% per gli url nella bibliografia
+\usepackage{url}
+
+% per le didascalie
+\usepackage[hang,small,bf]{caption}
+
+\usepackage{fancyhdr}
+\fancyhead[R]{}
+
+% per l'inserimento e l'affiancamento delle immagini
+\usepackage[usenames]{color}
+\usepackage{subfig}
+
+% per gli elenchi 
+\usepackage{enumitem}
+
+\usepackage{booktabs}
+
+\usepackage{array} 
+
+\usepackage{float}
+
+\begin{document}
+\include{frontespizio}
+\pagestyle{empty}
+\pagenumbering{arabic}
+\tableofcontents
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\include{introduzione}
+\include{implementazione}
+\include{conclusioni}
+
+\end{document}

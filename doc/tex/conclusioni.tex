@@ -1,0 +1,91 @@
+\singlespacing
+
+\chapter{Conclusioni}
+
+Dallo svolgimento di diversi test sul numero di processori, si nota che la parallelizzazione di alcune delle funzioni rallenta l'esecuzione delle 
+stesse. Un altro tentativo è stato effettuato andando ad agire su diversi input di grandi dimensioni. Sono state pertanto confrontate le performance 
+delle funzioni parallelizzate con quelle seriali, utilizzando 15 processori, su diversi input di grandi dimensioni. \\
+
+\noindent Segue lo studio sulla funzione \texttt{csrCreate} con diversi input con n = 15. \\
+
+\begin{codice}
+input1 = vcat([EV*j for j=1:100]...) 
+input2 = vcat([EV*j for j=1:1000]...)
+input3 = vcat([EV*j for j=1:5000]...)
+\end{codice}
+
+\noindent dove 
+
+\begin{codice}
+EV = [[0,1],[0,3],[1,2],[1,3],[1,4],[2,4],[2,5],[3,4],[4,5]] 
+\end{codice}
+
+\vspace{0.5 cm}
+
+\noindent \textbf{Tempi della versione seriale}
+\begin{codice}
+timeinput1 = 0.002113414
+timeinput2 = 0.008444055
+timeinput3 = 0.050567467
+\end{codice}
+
+\vspace{0.5 cm}
+
+\noindent \textbf{Tempi della versione parallela}
+\begin{codice}
+timepinput1 = 0.002388622
+timepinput2 = 0.00893245
+timepinput3 = 0.060305142
+\end{codice}
+
+\vspace{0.5 cm}
+
+\noindent \textbf{Confronti tra la versione seriale e la parallela tramite il rapporto tra i loro tempi}
+\begin{codice}
+timeinput1/timepinput1 = 0.8847837790994139
+timeinput2/timepinput2 = 0.945323511466619
+timeinput3/timepinput3 = 0.8385266218260459
+\end{codice}
+
+\vspace{0.5 cm}
+
+\noindent Come si evince dall'esempio di cui sopra, la versione parallela non è efficiente. \\\\
+
+\noindent Esempio sicuramente più significativo è dato dallo studio sulla funzione \texttt{csr2DenseMatrix}. \\
+
+\begin{codice}
+input1 = vcat([EV*j for j=1:100]...)
+input2 = vcat([EV*j for j=1:1000]...)
+input3 = vcat([EV*j for j=1:5000]...)
+\end{codice}
+
+\vspace{0.5 cm}
+
+\noindent \textbf{Tempi della versione seriale}
+\begin{codice}
+timeinput1 = 0.009490412
+timeinput2 = 0.466812199
+timeinput3 = 12.684459215
+\end{codice}
+
+\vspace{0.5 cm}
+
+\noindent \textbf{Tempi della versione parallela}
+\begin{codice}
+timepinput1 = 0.010543615
+timepinput2 = 0.669056614
+timepinput3 = 14.3567615
+\end{codice}
+
+\vspace{0.5 cm}
+
+\noindent \textbf{Confronti tra la versione seriale e la parallela tramite il rapporto tra i loro tempi}
+\begin{codice}
+timeinput1/timepinput1 = 0.9001098769255138
+timeinput2/timepinput2 = 0.6977170380382787
+timeinput3/timepinput3 = 0.8835181398674068	
+\end{codice}
+
+\vspace{0.5 cm}
+
+\noindent Si può dunque concludere che la versione seriale, in caso di grandi input, aiuta a velocizzare il processo.
